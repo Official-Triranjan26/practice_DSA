@@ -26,7 +26,18 @@ int main(){
 //	char character='c';
 //	cout<<"character : "<<character<<endl;
 //	cout<<"character size : "<<sizeof(character)<<endl;
-	
 
+//--------------------------------
+//increment /decrement operator
+
+int i=4;
+//post_increment
+int a=i++;
+cout<<"a :"<<a<<endl;
+cout<<"i :"<<i<<endl;
+//pre_increment
+int b=++i;
+cout<<"b :"<<b<<endl;
+cout<<"i :"<<i<<endl;
     return 0;
 }
