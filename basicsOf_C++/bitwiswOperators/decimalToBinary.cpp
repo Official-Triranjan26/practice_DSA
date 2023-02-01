@@ -13,6 +13,7 @@ int main(){
 	while(n!=0){
 		int bit=n&1;
 		ans=(bit*pow(10,i))+ans;
+		cout<<ans<<endl;
 		n=n>>1;
 		i++;	
 	}
