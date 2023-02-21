@@ -1,46 +1,47 @@
+//calculate perfect sqrt of given integer
+
 #include<iostream>
 using namespace std;
-
-calculateSqrt(int arr[],int size){
-	int start=0;
-	int end=size-1;
-	int mid=(start+end)/2;
-	int ans;
-	
-	while(start<=end){
-		int sqrt=arr[mid]*arr[mid];
-		if( sqrt==arr[size-1]){
-			return arr[mid];
+int calculateSqrt(int n){
+	int s=0;
+	int e=n;
+	int m=(s+e)/2;
+	int ans=-1;
+	while(s<=e){
+		int squre=m*m;
+		if(squre==n){
+			return m;
 		}
-		else if(sqrt>arr[size-1]){
-			end=mid-1;
-			if(ans*ans<sqrt){
-				return ans;
-				
-			}
+		else if(squre>n){
+			e=m-1;
 		}
 		else{
-			ans=arr[mid];
-			start=mid+1;
+			ans=m;
+			s=m+1;
 		}
-		mid=(start+end)/2;
+		m=(s+e)/2;	
 	}
+	return ans;
 }
-void printArray(int arr[],int size){
-	for(int i=1;i<=size ;i++){
-		cout<<arr[i]<<"  ";
+
+double perfectSqrt(int n, int precision,int tempSol){
+	double factor=1;
+	double ans=tempSol;
+	for(int i=0;i<precision;i++){
+		factor=factor/10;
+		for(double j=ans;j*j<n;j=j+factor){
+			ans=j;
+		}
 	}
-	cout<<endl;
+	return ans;
 }
 
 int main(){
-	int arr[100],n;
+	int n;
+	cout<<"Enter the number : ";
 	cin>>n;
-	for (int i=1;i<=n;i++){
-		arr[i]=i;
-	}
-	printArray(arr,n);
-	cout<<"Sqrt of "<<n<<" is "<<calculateSqrt(arr,n);
+	cout<<endl;
+	int tempSol=calculateSqrt(n);
+	cout<<"Sqrt of "<<n<<" is : "<<perfectSqrt(n,3,tempSol);
 	
-	return 0;
 }
