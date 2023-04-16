@@ -16,11 +16,16 @@ void printArray(int arr[],int size){
 //	return 0;
 //}
 
+//void reverseAlternete(int arr[],int size){
+//	int i;
+//	while(i+1<size){
+//		swap(arr[i],arr[i+1]);
+//		i=i+2;
+//	}
+//}
 void reverseAlternete(int arr[],int size){
-	int i;
-	while(i+1<size){
+	for(int i=0;i+1<size;i+=2){
 		swap(arr[i],arr[i+1]);
-		i=i+2;
 	}
 }
 
